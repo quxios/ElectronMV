@@ -1,0 +1,41 @@
+{
+  "name": "ElectronMV",
+  "version": "1.0.0",
+  "description": "Wraps MV with Electron",
+  "main": "app/js/electronMain.js",
+  "author": "Quasi",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-electron": "^0.37.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "electron-builder": "^7.18.0",
+    "electron-prebuilt": "^1.4.5"
+  },
+  "scripts": {
+    "build-w64": "build -w --x64",
+    "build-w32": "build -w --ia32"
+  },
+  "build": {
+    "files": [
+      "**/*",
+      "!**/save${/*}",
+      "!**/node_modules${/*}"
+    ],
+    "extraResources": [
+      {
+        "from": "app/save",
+        "to": "save",
+        "filter": [
+          "!**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "dir",
+      "icon": "app/icon/icon.ico"
+    }
+  }
+}

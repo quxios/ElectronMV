@@ -1,0 +1,8 @@
+{
+  "name": "Test",
+  "version": "1.0.0",
+  "description": "Test app",
+  "main": "js/electronMain.js",
+  "author": "Quasi",
+  "license": "MIT"
+}
