@@ -1,14 +1,14 @@
-## ElectronMV v1.0.0
+## ElectronMV v1.0.X
 [Electron](http://electron.atom.io/) wrapper for RPG Maker MV. Wrapping MV with Electron gives a handful of benefits. One of the main benefits includes in this wrapper is being able to remember the window position, size and if it was full screened the next time it's opened. See example here:
 [twitter link](https://twitter.com/QuasiXi/status/802891839040733184)
 
 [RPG Maker Web thread](http://forums.rpgmakerweb.com/index.php?/topic/71778-electronmv/)
 
-##Installing
+## Installing
 1. Download or clone the repo
 2. Copy your projects files into the app folder. Do not accept to overwrite files, if copying into the app folder. Your project should have 5 new files, app/js/electronMain.js, app/js/electronRenderer.js, app/data/winData.json, app/index.html app/package.json. Do not rename the app folder unless you know what you're doing.
 
-##Running Project with Electron
+## Running Project with Electron
 If you play test your project from the RPG Maker MV editor, it will run with nw.js not electron.
 
 1. Install [Node.js](https://nodejs.org/en/download/)
@@ -24,13 +24,13 @@ Notes
 
 - If you don't know how to use the cli, I included a play.bat file. Just double click that and it will do the steps 3-4 for you.
 
-##Building your game
+## Building your game
 If you build you game with the RPG Maker MV editor through deployment, it will be built with nw.js. To build with electron you can use [Electron builder](https://github.com/electron-userland/electron-builder). Which is already added in the dev dependencies. It is also configured to build windows 32 and 64bit apps, just run the following cli:
 
 `npm run build-w32` for windows 32
 `npm run build-w64` for windows 64
 
-##Configuring
+## Configuring
 You will need to configure 2 files. app/package.json and app/data/winData.json.
 
 *app/package.json*
@@ -50,5 +50,5 @@ This file contains data for the window settings. You will need to change the fol
 2. resizable - If the window is resizable, set to true or false
 3. fullscreen - If the window starts fullscreen on first run, set to true or false.
 
-##Terms
+## Terms
 Free to use for all projects.
