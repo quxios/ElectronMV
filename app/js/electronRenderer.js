@@ -1,5 +1,5 @@
 window.Imported = {
-  QElectron: '1.0.0'
+  QElectron: '1.0.1'
 }
 
 if (!Utils.isNwjs()) {
@@ -93,12 +93,16 @@ window.onbeforeunload = function() {
   const winData = ipcRenderer.sendSync('get-WinData');
   const path = require('path');
   const fs   = require('fs');
+  const base = path.dirname(process.mainModule.filename);
   let dir = '';
   if (Utils.inProduction()) {
-    dir = path.join(__dirname, '../save/winData.rpgsave');
+    dir = path.join(base, '../save/winData.rpgsave');
   } else {
-    dir = path.join(__dirname, './save/winData.rpgsave');
+    dir = path.join(base, './save/winData.rpgsave');
   }
   const data = Buffer.from(JSON.stringify(winData), 'utf8').toString('base64');
+  if (!fs.existsSync(path.dirname(dir))) {
+    fs.mkdirSync(path.dirname(dir));
+  }
   fs.writeFileSync(dir, data);
 }
