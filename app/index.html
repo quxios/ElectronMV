@@ -29,7 +29,12 @@
             // files should be compiled for production
             require('babel-register')
           } catch (e) {}
-          require('./js/electronRenderer.js')
+          try {
+            require('./js/electronRenderer.js')
+          } catch (e) {
+            alert('You are using an Electron Wrapper, but ran with nw.js ( default MV ). Electron plugins will not work.');
+            console.warn('You are using an Electron Wrapper, but ran with nw.js ( default MV ). Electron plugins will not work.');
+          }
         </script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
