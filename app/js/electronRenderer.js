@@ -39,11 +39,12 @@ Graphics._switchFullScreen = function() {
 StorageManager.localFileDirectoryPath = function() {
     const path = require('path');
     const fs   = require('fs');
+    const base = path.dirname(process.mainModule.filename);
     let dir = '';
     if (Utils.inProduction()) {
-      dir = path.join(__dirname, '../save/');
+      dir = path.join(base, '../save/');
     } else {
-      dir = path.join(__dirname, './save/');
+      dir = path.join(base, './save/');
     }
     return dir;
 };
