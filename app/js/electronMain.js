@@ -39,6 +39,7 @@ function createWindow () {
     width: winData.width,
     height: winData.height,
     resizable: winData.resizable || true,
+    useContentSize: true,
     webPreferences: {
       devTools: devMode && process.env.PRODUCTION !== 'true'
     }
@@ -51,6 +52,7 @@ function createWindow () {
   }))
 
   win.setMenu(null)
+  win.setContentSize(winData.width, winData.height)
   if (winData.x && winData.y) {
     win.setPosition(winData.x, winData.y)
   }
@@ -59,6 +61,7 @@ function createWindow () {
     win = null
   })
   win.on('move', () => {
+    console.log(win.getContentSize());
     winData.x = win.getPosition()[0]
     winData.y = win.getPosition()[1]
   })

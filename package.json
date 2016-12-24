@@ -1,6 +1,6 @@
 {
   "name": "ElectronMV",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Wraps MV with Electron",
   "main": "app/js/electronMain.js",
   "author": "Quasi",
