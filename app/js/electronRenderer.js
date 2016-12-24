@@ -1,5 +1,5 @@
 window.Imported = {
-  QElectron: '1.0.1'
+  QElectron: '1.0.4'
 }
 
 if (!Utils.isNwjs()) {
@@ -17,6 +17,19 @@ const winData = ipcRenderer.sendSync('get-WinData');
 
 Utils.inProduction = function() {
   return process.env.PRODUCTION === 'true';
+}
+
+Utils.isDev = function() {
+  return process.env.DEV === 'true';
+}
+
+var Alias_Utils_isOptionValid = Utils.isOptionValid;
+Utils.isOptionValid = function(name) {
+  if (name === 'test') {
+    return Utils.isDev();
+  } else {
+    return Alias_Utils_isOptionValid.call(this, name);
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -37,17 +50,17 @@ Graphics._switchFullScreen = function() {
 // StorageManager
 
 StorageManager.localFileDirectoryPath = function() {
-    const path = require('path');
-    const fs   = require('fs');
-    const base = path.dirname(process.mainModule.filename);
-    let dir = '';
-    if (Utils.inProduction()) {
-      dir = path.join(base, '../save/');
-    } else {
-      dir = path.join(base, './save/');
-    }
-    return dir;
-};
+  const path = require('path');
+  const fs   = require('fs');
+  const base = path.dirname(process.mainModule.filename);
+  let dir = '';
+  if (Utils.inProduction()) {
+    dir = path.join(base, '../save/');
+  } else {
+    dir = path.join(base, './save/');
+  }
+  return dir;
+}
 
 //-----------------------------------------------------------------------------
 // SceneManager
@@ -64,8 +77,9 @@ SceneManager.initNwjs = function() {
 let Alias_SceneManager_onKeyDown = SceneManager.onKeyDown;
 SceneManager.onKeyDown = function(event) {
   if (!event.ctrlKey && !event.altKey) {
-    if (event.keyCode === 119) {
+    if (event.keyCode === 119 && Utils.isOptionValid('test')) {
       ipcRenderer.send('open-DevTools');
+      return;
     }
   }
   Alias_SceneManager_onKeyDown.call(this, event);

@@ -6,6 +6,7 @@ const fs = require('fs')
 const root = path.join(__dirname, '../')
 process.env.PRODUCTION = path.extname(root) === '.asar'
 const devMode = (process.argv || []).indexOf('--dev') !== -1
+process.env.DEV = devMode
 
 let win
 
@@ -61,7 +62,6 @@ function createWindow () {
     win = null
   })
   win.on('move', () => {
-    console.log(win.getContentSize());
     winData.x = win.getPosition()[0]
     winData.y = win.getPosition()[1]
   })
@@ -104,4 +104,4 @@ ipcMain.on('open-DevTools', () => {
 
 ipcMain.on('set-fullscreen', (e) => {
   win.setFullScreen(!win.isFullScreen())
-});
+})
