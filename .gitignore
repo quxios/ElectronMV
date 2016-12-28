@@ -1,0 +1,17 @@
+# Ignore unchanged MV folders
+app/audio/*
+app/data/*
+!app/data/WinData.json
+app/img/*
+app/fonts/
+app/movies/
+
+# Ignore default js
+app/js/libs/
+app/js/main.js
+app/js/rpg_core.js
+app/js/rpg_managers.js
+app/js/rpg_objects.js
+app/js/rpg_scenes.js
+app/js/rpg_sprites.js
+app/js/rpg_windows.js
