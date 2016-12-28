@@ -1,3 +1,6 @@
+#node
+node_modules
+
 # Ignore unchanged MV folders
 app/audio/*
 app/data/*
@@ -15,3 +18,5 @@ app/js/rpg_objects.js
 app/js/rpg_scenes.js
 app/js/rpg_sprites.js
 app/js/rpg_windows.js
+
+app/save/winData.rpgsave

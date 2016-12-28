@@ -70,7 +70,7 @@ function createWindow () {
     winData.height = win.getContentSize()[1]
   })
   win.webContents.openDevTools({
-    detach: true
+    mode: 'detach'
   })
   win.webContents.once('devtools-opened', () => {
     win.focus()
