@@ -2,7 +2,7 @@
 [Electron](http://electron.atom.io/) wrapper for RPG Maker MV. Wrapping MV with Electron gives a handful of benefits. One of the main benefits includes in this wrapper is being able to remember the window position, size and if it was full screened the next time it's opened. See example here:
 [twitter link](https://twitter.com/QuasiXi/status/802891839040733184)
 
-[RPG Maker Web thread](http://forums.rpgmakerweb.com/index.php?/topic/71778-electronmv/)
+[RPG Maker Web thread](http://forums.rpgmakerweb.com/index.php?threads/electronmv.71778/)
 
 ## Installing
 1. Download or clone the repo
