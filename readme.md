@@ -16,14 +16,21 @@
  `npm install`
 4. Once they are installed you can run electron with
 
- `electron . --dev`
+macOS / Linux
 
-  Or by running the included play.bat.
+ `./node_modules/.bin/electron . --dev`
+
+Windows:
+
+ `.\\node_modules\\.bin\\electron . --dev`
+
+Or by running the included play.bat.
 
 Notes
 
 - If you don't know how to use the cli, I included a `play.bat` file. Just double click that and it will do the steps 3-4 for you.
 - Hitting play test in the MV Editor will start with nw.js, but the new index.html will close nw.js and restart it with Electron. So you can also play by using the test play in the editor.
+- I haven't tested running on macOS or Linux, so not sure if you have to escape the /. Also the play.bat runs the windows command, so play.bat only works for windows right now.
 
 ## Building your game
 If you build you game with the RPG Maker MV editor through deployment, it will be built with nw.js. To build with electron you can use [Electron builder](https://github.com/electron-userland/electron-builder). Which is already added in the dev dependencies. It is also configured to build windows 32 and 64bit apps, just run the following cli:
@@ -34,6 +41,7 @@ If you build you game with the RPG Maker MV editor through deployment, it will b
 Notes
 
 - If you don't know how to use the cli, I included a `deploy.bat` file. Run that file and it will help you build it.
+- Builder isn't configed for Linux or macOS. If someone can set them up and push the change that would be awesome.
 
 ## Configuring
 You will need to configure 2 files. `app/package.json` and `app/data/winData.json`.
