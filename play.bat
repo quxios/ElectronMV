@@ -12,10 +12,10 @@ IF %errorlevel%==0 GOTO runElectron
 
 :installNode
   ECHO Installing node modules
-  npm install && electron . --dev && exit
+  npm install && npm run start && exit
   EXIT /B 0
 
 :runElectron
   IF NOT EXIST node_modules GOTO :installNode
-  electron . --dev && exit
+  npm run start && exit
   EXIT /B 0

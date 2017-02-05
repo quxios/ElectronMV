@@ -1,6 +1,6 @@
 {
   "name": "ElectronMV",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Wraps MV with Electron",
   "main": "app/js/electronMain.js",
   "author": "Quxios",
@@ -15,6 +15,7 @@
     "electron": "^1.4.5"
   },
   "scripts": {
+    "start": ".\\node_modules\\.bin\\electron . --dev",
     "compile": "babel app -d compiled --copy-files",
     "build-w64": "npm run compile && build -w --x64",
     "build-w32": "npm run compile && build -w --ia32"
