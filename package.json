@@ -1,6 +1,6 @@
 {
   "name": "ElectronMV",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Wraps MV with Electron",
   "main": "app/js/electronMain.js",
   "author": "Quxios",
@@ -12,7 +12,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
     "electron-builder": "^7.18.0",
-    "electron-prebuilt": "^1.4.5"
+    "electron": "^1.4.5"
   },
   "scripts": {
     "compile": "babel app -d compiled --copy-files",

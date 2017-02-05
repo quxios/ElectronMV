@@ -39,7 +39,7 @@ function createWindow () {
   win = new BrowserWindow({
     width: winData.width,
     height: winData.height,
-    resizable: winData.resizable || true,
+    resizable: winData.resizable,
     useContentSize: true,
     webPreferences: {
       devTools: devMode && process.env.PRODUCTION !== 'true'
