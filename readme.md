@@ -16,15 +16,15 @@
  `npm install`
 4. Once they are installed you can run electron with
 
-macOS / Linux
+ macOS / Linux
 
  `./node_modules/.bin/electron . --dev`
 
-Windows:
+ Windows:
 
  `.\\node_modules\\.bin\\electron . --dev`
 
-Or by running the included play.bat.
+ Or by running the included play.bat.
 
 Notes
 
