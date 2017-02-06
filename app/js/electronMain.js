@@ -4,9 +4,11 @@ const url = require('url')
 const fs = require('fs')
 
 const root = path.join(__dirname, '../')
-process.env.PRODUCTION = path.extname(root) === '.asar'
+process.env.PRODUCTION = process.env.npm_package_name === undefined
 const devMode = (process.argv || []).indexOf('--dev') !== -1
 process.env.DEV = devMode
+
+app.commandLine.appendSwitch('js-flags', '--expose_gc')
 
 let win
 
