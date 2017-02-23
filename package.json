@@ -15,7 +15,7 @@
     "electron": "^1.4.5"
   },
   "scripts": {
-    "start": ".\\node_modules\\.bin\\electron . --dev",
+    "start": "electron . --dev",
     "compile": "babel app -d compiled --copy-files",
     "build-w64": "npm run compile && build -w --x64",
     "build-w32": "npm run compile && build -w --ia32"
