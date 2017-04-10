@@ -1,5 +1,5 @@
 window.Imported = {
-  QElectron: '1.1.0'
+  QElectron: '1.1.1'
 }
 
 if (!Utils.isNwjs()) {
@@ -17,11 +17,11 @@ const winData = ipcRenderer.sendSync('get-WinData');
 
 Utils.inProduction = function() {
   return process.env.PRODUCTION === 'true';
-}
+};
 
 Utils.isDev = function() {
   return process.env.DEV === 'true';
-}
+};
 
 var Alias_Utils_isOptionValid = Utils.isOptionValid;
 Utils.isOptionValid = function(name) {
@@ -30,21 +30,21 @@ Utils.isOptionValid = function(name) {
   } else {
     return Alias_Utils_isOptionValid.call(this, name);
   }
-}
+};
 
 //-----------------------------------------------------------------------------
 // Input
 
 Input._wrapNwjsAlert = function() {
   // Don't think this is needed
-}
+};
 
 //-----------------------------------------------------------------------------
 // Graphics
 
 Graphics._switchFullScreen = function() {
   ipcRenderer.send('set-fullscreen');
-}
+};
 
 //-----------------------------------------------------------------------------
 // StorageManager
@@ -55,12 +55,14 @@ StorageManager.localFileDirectoryPath = function() {
   const base = path.dirname(process.mainModule.filename);
   let dir = '';
   if (Utils.inProduction()) {
+    // When in production, by default, the files are in an .asar package
+    // so we need to save outside the asar by going back 1 path
     dir = path.join(base, '../save/');
   } else {
     dir = path.join(base, './save/');
   }
   return dir;
-}
+};
 
 //-----------------------------------------------------------------------------
 // SceneManager
@@ -72,7 +74,7 @@ SceneManager._boxHeight    = winData.res[1];
 
 SceneManager.initNwjs = function() {
   // Not needed, no longer uses nwjs, uses electron instead
-}
+};
 
 let Alias_SceneManager_onKeyDown = SceneManager.onKeyDown;
 SceneManager.onKeyDown = function(event) {
@@ -83,7 +85,7 @@ SceneManager.onKeyDown = function(event) {
     }
   }
   Alias_SceneManager_onKeyDown.call(this, event);
-}
+};
 
 //-----------------------------------------------------------------------------
 // PluginManager
@@ -95,29 +97,10 @@ PluginManager.loadScript = function(name) {
   } else {
     Alias_PluginManager_loadScript.call(this, name);
   }
-}
+};
 
+// Plugins that in in -req.js are loaded in by requiring them
+// instead of loading as a script tag to the dom
 PluginManager.needsRequire = function(name) {
   return /-req\.js$/.test(name);
-}
-
-//-----------------------------------------------------------------------------
-// Extra Electron stuff
-
-window.onbeforeunload = function() {
-  const winData = ipcRenderer.sendSync('get-WinData');
-  const path = require('path');
-  const fs   = require('fs');
-  const base = path.dirname(process.mainModule.filename);
-  let dir = '';
-  if (Utils.inProduction()) {
-    dir = path.join(base, '../save/winData.rpgsave');
-  } else {
-    dir = path.join(base, './save/winData.rpgsave');
-  }
-  const data = Buffer.from(JSON.stringify(winData), 'utf8').toString('base64');
-  if (!fs.existsSync(path.dirname(dir))) {
-    fs.mkdirSync(path.dirname(dir));
-  }
-  fs.writeFileSync(dir, data);
-}
+};
