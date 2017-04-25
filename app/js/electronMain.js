@@ -44,6 +44,7 @@ function start () {
 
 function createWindow () {
   win = new BrowserWindow({
+    show: false,
     width: winData.width,
     height: winData.height,
     resizable: winData.resizable,
@@ -64,7 +65,9 @@ function createWindow () {
   if (!isNaN(winData.x) && !isNaN(winData.y)) {
     win.setPosition(winData.x, winData.y);
   }
-
+  win.once('ready-to-show', () => {
+    win.show();
+  });
   win.on('closed', () => {
     const data = Buffer.from(JSON.stringify(winData), 'utf8').toString('base64');
     if (!fs.existsSync(path.dirname(winDataPath))) {
