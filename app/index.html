@@ -8,7 +8,7 @@
         <link rel="icon" href="icon/icon.png" type="image/png">
         <link rel="apple-touch-icon" href="icon/icon.png">
         <link rel="stylesheet" type="text/css" href="fonts/gamefont.css">
-        <title>ProjectTest</title>
+        <title>ProjectElectron</title>
     </head>
     <body style="background-color: black">
         <script type="text/javascript" src="js/libs/pixi.js"></script>
@@ -16,6 +16,7 @@
         <script type="text/javascript" src="js/libs/pixi-picture.js"></script>
         <script type="text/javascript" src="js/libs/fpsmeter.js"></script>
         <script type="text/javascript" src="js/libs/lz-string.js"></script>
+        <script type="text/javascript" src="js/libs/iphone-inline-video.browser.js"></script>
         <script type="text/javascript" src="js/rpg_core.js"></script>
         <script type="text/javascript" src="js/rpg_managers.js"></script>
         <script type="text/javascript" src="js/rpg_objects.js"></script>
@@ -33,7 +34,6 @@
             require('./js/electronRenderer.js')
           } catch (e) {
             alert('You are using an Electron Wrapper, but ran with nw.js ( default MV ). Will now restart with Electron.');
-            //console.warn('You are using an Electron Wrapper, but ran with nw.js ( default MV ). Electron plugins will not work.');
             var path = require('path');
             var root = path.dirname(process.mainModule.filename)
             root = path.join(root, '../');

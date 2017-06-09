@@ -112,7 +112,7 @@ ipcMain.on('get-WinData', (e) => {
 });
 
 ipcMain.on('open-DevTools', () => {
-  win.openDevTools({
+  win.webContents.openDevTools({
     detach: true
   });
 });

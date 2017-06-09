@@ -1,5 +1,5 @@
 window.Imported = {
-  QElectron: '1.1.3'
+  QElectron: '1.1.4'
 }
 
 if (!Utils.isNwjs()) {
