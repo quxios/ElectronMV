@@ -17,11 +17,8 @@
   "scripts": {
     "start": "electron . --dev",
     "compile": "babel app -d compiled --copy-files",
-    "build-w64": "npm run compile && build -w --x64",
-    "build-w32": "npm run compile && build -w --ia32"
-  },
-  "directories": {
-    "app": "compiled"
+    "build-w64": "build -w --x64",
+    "build-w32": "build -w --ia32"
   },
   "build": {
     "appId": "MVGame",
